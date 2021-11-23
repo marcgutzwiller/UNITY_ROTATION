@@ -12,6 +12,7 @@ public class Rotation : MonoBehaviour
 	
 	void Update()
 	{
+		//Add constant rotation with "rotationSpeed"
 		if (rotateConstantly)
 		{
 			transform.Rotate(Vector3.down*rotationSpeed);
@@ -20,9 +21,10 @@ public class Rotation : MonoBehaviour
 
 	void OnMouseDrag()
     {
+	    //Rotation on specified axis. Space.World --> rotation around the global x,y,z axis (Space.Self --> around the axis of the gameobject
 	    if (rotateOnlyOnYaxis)
 	    {
-		    transform.Rotate(Vector3.down*Input.GetAxis("Mouse X")*rotationSpeed, Space.World);
+		    transform.Rotate(Vector3.down * Input.GetAxis("Mouse X") * rotationSpeed, Space.World);
 	    }
 	    if (rotateOnlyOnXaxis)
 	    {
@@ -43,6 +45,7 @@ public class Rotation : MonoBehaviour
     }
 	public void OnMouseDown()
     {
+	    //90° snap-rotation on mouse click around the x-axis
 	    transform.Rotate(Vector3.down*90);
     }
 }
